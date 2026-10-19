@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="CLK_31P5_sim/CLK_31P5.vo" type="VERILOG" />
+ <topLevel name="CLK_31P5" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

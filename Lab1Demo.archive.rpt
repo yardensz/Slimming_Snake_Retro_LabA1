@@ -1,0 +1,232 @@
+Archive Project report for Lab1Demo
+Mon Oct 19 14:55:59 2026
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Mon Oct 19 14:55:59 2026 ;
+; Revision Name          ; Lab1Demo                              ;
+; Top-level Entity Name  ; TOP_VGA_DEMO                          ;
+; Family                 ; Cyclone V                             ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Custom' contains:
+    Info: Programming output files
+    Info: Incremental compilation and Rapid Recompile database files (version-incompatible)
+    Info: Automatically detected source files
+    Info: Report files
+    Info: Project source and settings files
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory C:/Users/jorde/LAB_A1/project_191026_v2/project_191026_v1_horizontal_pixels_fix_restored/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive 'C:/Users/jorde/LAB_A1/project_191026_v2/project_191026_v1_horizontal_pixels_fix_restored/project_191026_v2.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'Lab1Demo.archive.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4911 megabytes
+    Info: Processing ended: Mon Oct 19 14:55:59 2026
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++-----------------------------------------------------------------------------+
+; Files Archived                                                              ;
++-----------------------------------------------------------------------------+
+; File Name                                                                   ;
++-----------------------------------------------------------------------------+
+; ALL_HEXSS.bdf                                                               ;
+; assignment_defaults.qdf                                                     ;
+; audio_codec_controller.QXP                                                  ;
+; CLK_31P5.cmp                                                                ;
+; CLK_31P5.qip                                                                ;
+; CLK_31P5.sip                                                                ;
+; CLK_31P5.spd                                                                ;
+; CLK_31P5.v                                                                  ;
+; CLK_31P5/CLK_31P5_0002.qip                                                  ;
+; CLK_31P5/CLK_31P5_0002.v                                                    ;
+; CLK_31P5_sim/CLK_31P5.vo                                                    ;
+; constraints/DE10_Standard_Audio.sdc                                         ;
+; constraints/pin.tcl                                                         ;
+; db/Lab1Demo.db_info                                                         ;
+; db/stp2_auto_stripped.stp                                                   ;
+; DE10_Standard_Audio.sdc                                                     ;
+; incremental_db/compiled_partitions/Lab1Demo.db_info                         ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.cdb          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.dfp          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.hbdb.cdb     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.hbdb.hdb     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.hbdb.sig     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.hdb          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.logdb        ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.cmp.rcfdb        ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.cdb          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.dpi          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.hbdb.cdb     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.hbdb.hb_info ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.hbdb.hdb     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.hbdb.sig     ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.hdb          ;
+; incremental_db/compiled_partitions/Lab1Demo.root_partition.map.kpt          ;
+; incremental_db/compiled_partitions/Lab1Demo.rrp.hdb                         ;
+; incremental_db/compiled_partitions/Lab1Demo.rrs.cdb                         ;
+; KBDINTF.qxp                                                                 ;
+; Lab1Demo.qpf                                                                ;
+; Lab1Demo.qsf                                                                ;
+; Lab1Demo_assignment_defaults.qdf                                            ;
+; output_files/Chain1.cdf                                                     ;
+; output_files/Chain2.cdf                                                     ;
+; output_files/Chain3.cdf                                                     ;
+; output_files/Lab1Demo.asm.rpt                                               ;
+; output_files/Lab1Demo.fit.rpt                                               ;
+; output_files/Lab1Demo.fit.smsg                                              ;
+; output_files/Lab1Demo.fit.summary                                           ;
+; output_files/Lab1Demo.flow.rpt                                              ;
+; output_files/Lab1Demo.jdi                                                   ;
+; output_files/Lab1Demo.map.rpt                                               ;
+; output_files/Lab1Demo.map.summary                                           ;
+; output_files/Lab1Demo.pin                                                   ;
+; output_files/Lab1Demo.sld                                                   ;
+; output_files/Lab1Demo.sof                                                   ;
+; output_files/Lab1Demo.sta.rpt                                               ;
+; output_files/Lab1Demo.sta.summary                                           ;
+; output_files/stp1.stp                                                       ;
+; output_files/stp2.stp                                                       ;
+; rand_v5_wave.vwf                                                            ;
+; RTL/all_numbers_display.sv                                                  ;
+; RTL/apple.mif                                                               ;
+; RTL/AUDIO/addr_counter.sv                                                   ;
+; RTL/AUDIO/AUDIO.bdf                                                         ;
+; RTL/AUDIO/audio_controller.sv                                               ;
+; RTL/AUDIO/audio_track_enable.sv                                             ;
+; RTL/AUDIO/audio_track_selector.sv                                           ;
+; RTL/AUDIO/JukeBox1.sv                                                       ;
+; RTL/AUDIO/melody_player_1.sv                                                ;
+; RTL/AUDIO/Mili_sec_counter.sv                                               ;
+; RTL/AUDIO/prescaler.sv                                                      ;
+; RTL/AUDIO/SinTable.sv                                                       ;
+; RTL/AUDIO/songs.mif                                                         ;
+; RTL/AUDIO/ToneDecoder.sv                                                    ;
+; RTL/CDU/clk_to_sof_pulse.sv                                                 ;
+; RTL/CDU/collision_detector.sv                                               ;
+; RTL/clock_divider.sv                                                        ;
+; RTL/custom_types.sv                                                         ;
+; RTL/dump_top.bdf                                                            ;
+; RTL/FOOD_DRAW/food_controller_v2.sv                                         ;
+; RTL/FOOD_DRAW/food_display.bdf                                              ;
+; RTL/FOOD_DRAW/food_draw.sv                                                  ;
+; RTL/FOOD_DRAW/packaged_food.sv                                              ;
+; RTL/game_state_mifs/gameOver.mif                                            ;
+; RTL/game_state_mifs/startScreen.mif                                         ;
+; RTL/game_state_mifs/victory.mif                                             ;
+; RTL/gamestate_image_display.sv                                              ;
+; RTL/ham.mif                                                                 ;
+; RTL/input_flipper.sv                                                        ;
+; RTL/KEYBOARDX/keyPad_decoder.sv                                             ;
+; RTL/KEYBOARDX/random.sv                                                     ;
+; RTL/KEYBOARDX/simple_up_counter.sv                                          ;
+; RTL/KEYBOARDX/TOP_KBD.bdf                                                   ;
+; RTL/mushroom.mif                                                            ;
+; RTL/mushroom_filter.sv                                                      ;
+; RTL/numbers.mif                                                             ;
+; RTL/offset_shifter.sv                                                       ;
+; RTL/RANDOM/random_v2.sv                                                     ;
+; RTL/RANDOM/random_v3.sv                                                     ;
+; RTL/RANDOM/random_v4.sv                                                     ;
+; RTL/RANDOM/random_v5.sv                                                     ;
+; RTL/SCORE/3_digits_display.bdf                                              ;
+; RTL/score_keeper.sv                                                         ;
+; RTL/Seg7/SEG7.SV                                                            ;
+; RTL/SNAKE_TILES/body_horizontal.mif                                         ;
+; RTL/SNAKE_TILES/body_vertial.mif                                            ;
+; RTL/SNAKE_TILES/corner_down_right.mif                                       ;
+; RTL/SNAKE_TILES/corner_left_down.mif                                        ;
+; RTL/SNAKE_TILES/corner_right_up.mif                                         ;
+; RTL/SNAKE_TILES/corner_up_left.mif                                          ;
+; RTL/SNAKE_TILES/head_down.mif                                               ;
+; RTL/SNAKE_TILES/head_left.mif                                               ;
+; RTL/SNAKE_TILES/head_right.mif                                              ;
+; RTL/SNAKE_TILES/head_up.mif                                                 ;
+; RTL/SNAKE_TILES/tail_down.mif                                               ;
+; RTL/SNAKE_TILES/tail_left.mif                                               ;
+; RTL/SNAKE_TILES/tail_right.mif                                              ;
+; RTL/SNAKE_TILES/tail_up.mif                                                 ;
+; RTL/space_and_time_shifter.sv                                               ;
+; RTL/time_counter.sv                                                         ;
+; RTL/VGA/4colorBG.mif                                                        ;
+; RTL/VGA/back_grround_draw_new.sv                                            ;
+; RTL/VGA/game_controller.sv                                                  ;
+; RTL/VGA/HartsMatrixBitMap.sv                                                ;
+; RTL/VGA/MyConstant.sv                                                       ;
+; RTL/VGA/NumbersBitMap.sv                                                    ;
+; RTL/VGA/objects_mux.sv                                                      ;
+; RTL/VGA/Smiley_Block_T.bdf                                                  ;
+; RTL/VGA/smiley_move.sv                                                      ;
+; RTL/VGA/smileyBitMap.sv                                                     ;
+; RTL/VGA/SNAKE_DISPLAY.bdf                                                   ;
+; RTL/VGA/square_Hart_object.sv                                               ;
+; RTL/VGA/square_object.sv                                                    ;
+; RTL/VGA/TOP_VGA_DEMO.bdf                                                    ;
+; RTL/VGA/VGA_Controller.sv                                                   ;
+; RTL/wall.mif                                                                ;
+; RTL/yinon_mods/binary_to_BCD.sv                                             ;
+; RTL/yinon_mods/dumb_speed_controller.sv                                     ;
+; RTL/yinon_mods/snake_management_unit.sv                                     ;
+; RTL/yinon_mods/snake_move.sv                                                ;
+; RTL/yinon_mods/speed_controller.sv                                          ;
+; RTL/yinon_mods/TripleDigitNumber.sv                                         ;
+; speed_controller_sim1.vwf                                                   ;
+; stp1.stp                                                                    ;
+; stp2.stp                                                                    ;
+; test_for_rand_5.bdf                                                         ;
+; time_counter.vwf                                                            ;
+; time_counter_2.vwf                                                          ;
+; time_counter_3.vwf                                                          ;
+; time_counter_4.vwf                                                          ;
+; wave_rand_test.vwf                                                          ;
+; Waveform.vwf                                                                ;
+; yinon_clock_divider_simulation_1.vwf                                        ;
+; yinon_clock_divider_simulation_2.vwf                                        ;
+; yinon_clock_divider_simulation_3_neww.vwf                                   ;
+; yinono_move_sim1.vwf                                                        ;
++-----------------------------------------------------------------------------+
+
+
