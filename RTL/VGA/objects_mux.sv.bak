@@ -1,0 +1,71 @@
+
+
+module	objects_mux	(	
+ 	
+					input		logic	clk,
+					input		logic	resetN,
+					
+					input    logic snake_request_a,
+					input    logic snake_request_b,
+					input		logic	[7:0] snake_RGB,   
+					
+					input		logic	[7:0] backGroundRGB, 
+					
+					input		logic			food_draw_req, 
+					input		logic	[7:0] food_rgb, 
+			  
+					input		logic 		digit3DrawingRequest, 
+					input		logic [7:0] digit3RGB,
+					
+					input    logic image_display_DrawingRequest, 
+					input		logic	[7:0] image_display_RGB,  
+					
+				   output	logic	[7:0] RGBOut
+);
+
+always_ff@(posedge clk or negedge resetN)
+begin
+	if(!resetN) begin
+			RGBOut	<= 8'b0;
+	end
+	
+	else begin
+		
+	//--------------~ drawing priority ~--------------------------------------------	
+
+		if 		(digit3DrawingRequest) 			RGBOut <= digit3RGB;
+		
+		else if 	(image_display_DrawingRequest) 		RGBOut <= image_display_RGB; //img display
+		
+		else if 	(snake_request_a || snake_request_b) 		RGBOut <= snake_RGB; // drawing snake
+
+		else if 	(food_draw_req) 				RGBOut <= food_rgb; // food
+				
+		else 	RGBOut <= backGroundRGB ;// last priority -background
+		
+	end
+
+end
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

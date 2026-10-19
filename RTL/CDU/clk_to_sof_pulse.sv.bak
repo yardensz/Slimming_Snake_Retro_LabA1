@@ -1,0 +1,143 @@
+
+// Turns a pulse (for one clk) of collision to a pulse (of one game tick) of collision.
+
+
+import packaged_food ::* ; // import all types of foods 
+
+
+module	clk_to_tick_pulse	(	
+ 	
+					input		logic				clk,
+					input		logic				resetN,
+						
+					input 	logic 			game_tick,
+					
+					input 	logic				food_collision_clk,			// the snake eat something
+					input 	logic				snake_collision_clk,			// the snake hit himself
+					input 	logic				rand_collision_clk,			// the request of drawing random food item - has denied!
+					input 	food_option  	eaten_food,
+					
+			  
+					output 	logic				food_collision_tick,		// on when collision is detected to a full start of frame (game tick)
+					output 	logic				snake_collision_tick,
+					output 	logic				rand_collision_tick,
+					output 	logic				hamburger_eaten_tick,	// flag after a hamburger has been eaten
+					output 	logic				red_apple_eaten_tick,			
+					output 	logic				mushroom_eaten_tick,				// for the future
+					output 	logic				wall_eaten_tick,
+					output 	logic				hamburger_eaten_clk,		
+					output 	logic				mushroom_eaten_clk,			
+					output 	logic				red_apple_eaten_clk,
+					output 	logic 			wall_eaten_clk
+);
+
+	always_ff@(posedge clk or negedge resetN) begin
+
+		if(!resetN) begin
+			food_collision_tick 	<= 0;
+			snake_collision_tick <= 0;
+			rand_collision_tick 	<= 0;
+			hamburger_eaten_tick <= 0;
+			red_apple_eaten_tick	<= 0;
+			mushroom_eaten_tick 	<= 0;
+			wall_eaten_tick		<= 0;
+			wall_eaten_clk <= 0;
+			//hamburger_eaten_clk 	<= 0;
+			//red_apple_eaten_clk	<= 0;
+		end
+		
+		
+		else begin
+			
+			
+			// for a new game tick, reset values back to 0 (for one cycle), and if there is collision, latch again.
+			if (game_tick) begin 
+			
+				food_collision_tick		<= 0;
+				snake_collision_tick 	<= 0;
+				rand_collision_tick		<= 0;
+				
+				red_apple_eaten_tick 	<= 0;			
+				hamburger_eaten_tick 	<= 0;
+				mushroom_eaten_tick 		<= 0;
+				wall_eaten_tick			<= 0;
+			end	
+			
+			
+			
+			// translate clk pulse to game tick pulse
+			if (food_collision_clk) 	food_collision_tick 		<= 1;
+			if (snake_collision_clk) 	snake_collision_tick 	<= 1;
+			if (rand_collision_clk)		rand_collision_tick 		<= 1;
+			
+			
+			
+			
+			
+			
+			// set the clk eaten flags as 0 unless food was eaten.
+			red_apple_eaten_clk 	<= 0;
+			mushroom_eaten_clk 	<= 0;			
+			hamburger_eaten_clk 	<= 0;
+			wall_eaten_clk  <= 0;
+			
+			
+			
+			
+			// -------- eaten flags for clk --------
+			
+			if (food_collision_clk) begin 				// if food was eaten. since only one food type can be eaten for every one clk, there is only one IF
+			
+				if 		(eaten_food == hamburger)	hamburger_eaten_clk 	<= 1;				
+				else if 	(eaten_food == red_apple)	red_apple_eaten_clk 	<= 1;
+				else if 	(eaten_food == mushroom)	mushroom_eaten_clk 	<= 1;
+				else if (eaten_food == wall)   		wall_eaten_clk 		<= 1;
+			end // end eaten clk
+			
+			
+			
+			
+			
+			
+			// -------- eaten flags for game tick --------
+			
+			if (food_collision_clk) begin
+
+				if      (eaten_food == hamburger)   hamburger_eaten_tick <= 1;
+				else if (eaten_food == red_apple)   red_apple_eaten_tick <= 1;
+				else if (eaten_food == mushroom)  	mushroom_eaten_tick 	<= 1;
+				else if (eaten_food == wall)   		wall_eaten_tick 		<= 1;
+
+			end // end eaten tick
+			
+			
+
+			
+		end // end else of syncrized part
+		
+		
+
+	end // end of always_ff
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
