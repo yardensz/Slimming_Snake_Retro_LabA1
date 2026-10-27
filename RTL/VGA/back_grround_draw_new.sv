@@ -31,7 +31,7 @@ localparam  logic [7:0] frame_color_b  = 8'b101_101_10 ;  //outer frame color gr
 localparam  logic [7:0] base_color  = 8'b110_110_10 ;  //base background color- light gray
 
 localparam  logic [7:0] checkerbaord_color_a  = 8'b101_111_10 ;  //a green
-localparam  logic [7:0] checkerbaord_color_b  = 8'b011_110_00 ;  //diffrent green
+localparam  logic [7:0] checkerbaord_color_b  = 8'b011_110_01 ;  //diffrent green
 
 //------------------------ memory ----------------
 

@@ -1,6 +1,6 @@
 
 
-// Collision Detection Unit (CDU) - 16.7.26
+// Collision Detection Unit (CDU)
 
 
 
@@ -13,23 +13,22 @@ module	collision_detector	(
 					input	logic					clk,
 					input	logic					resetN,	
 					
-					input logic 				food_draw_req,			// for food that already has been on screen
-					input logic 				snake_draw_req,		// for the snake itself (body and tail, without head)
-					input logic 				rand_draw_req,			// for random food placment
-					input logic 				head_draw_req,			// for snake's head (snake_draw is not including the head)
+					input logic 				food_draw_req,					// for food that already has been on screen
+					input logic 				snake_draw_req,				// for the snake itself (body and tail, without head)
+					input logic 				rand_draw_req,					// for random food placment
+					input logic 				head_draw_req,					// for snake's head (snake_draw is not including the head)
 
 					
-					input logic 				[987:0] flat_food_matrix,		// NEW 1D Flat Bus Output (13 * 19 * 4 = 988)
+					input logic 				[987:0] flat_food_matrix,	// NEW 1D Flat Bus Output (13 * 19 * 4 = 988)
 					input logic 				[5:0] snake_head_x ,
 					input logic 				[4:0] snake_head_y,
 
 					
 					
-					output logic				food_collision,		// the snake eat something
-					output logic				snake_collision,		// the snake hit himself
-					output logic				rand_collision,		// the request of drawing random food item - has denied!
-					
-					output food_option		eaten_food				// the food the snake just eat
+					output logic				food_collision,				// the snake eat something
+					output logic				snake_collision,				// the snake hit himself
+					output logic				rand_collision,				// the request of drawing random food item - has denied!
+					output food_option		eaten_food						// the food the snake just eat
 					
  );
  
@@ -45,7 +44,10 @@ module	collision_detector	(
  assign rand_collision_cond 	= ( (food_draw_req || snake_draw_req) && rand_draw_req );	// random food is in a collision with snake's body or with another food
  
  logic [0:12][0:18][3:0]  food_matrix;
+ 
+ 
  assign food_matrix = flat_food_matrix;
+ 
  
  
  

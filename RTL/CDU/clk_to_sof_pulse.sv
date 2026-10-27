@@ -6,7 +6,7 @@ import packaged_food ::* ; // import all types of foods
 
 
 
-module	clk_to_tick_pulse	(	
+module	clk_to_sof_pulse	(	
  	
 					input		logic				clk,
 					input		logic				resetN,

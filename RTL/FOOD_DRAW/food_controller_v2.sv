@@ -7,7 +7,7 @@ import custom_types::*;
 module	food_controller_v2	(	
 					input logic				clk,
 					input logic				resetN,	
-					input logic 			[2:0] game_state, 					// should get this one from Yinon and it should be 4-5 modes overall
+					input logic 			[2:0] game_state, 					// from game_controller
 																							
 					input food_option 	eaten_food, 							// which food eaten last time around? 
 					input logic 			[7:0] time_counter, 					// timer (in sec), setting it for 8 bits for 256 sec overall.
@@ -31,7 +31,7 @@ module	food_controller_v2	(
  
  logic start_cooldown;
  
- enum logic [5:0] { idel_state ,apple_state , ham_state , full_state , mushroom_state , wall_state} fsm; 		// FSM 
+ enum logic [5:0] { idel_state ,apple_state , ham_state , full_state , mushroom_state} fsm; 		// FSM 
  
  logic game_active;
  
@@ -73,7 +73,7 @@ module	food_controller_v2	(
 		
 		
 		
-		else begin
+		else begin	// else resetN
 		
 			// default for timer reset --> DO NOT! reset timer always unless told otherwise
 			time_soft_reset       <= 0;
@@ -96,21 +96,21 @@ module	food_controller_v2	(
 			end
 		
 		
-		
+			// ---- making sure food was drawn on the bitmap ----
 			else if (food_gen_flag) begin		// if the flag for generating is till on, check if you can turn it off, if so, turn it off and add 1 to the food counter.
 
 				if (food_gen_done) begin
 
 					food_count_out[gen_food] <= food_count_in[gen_food] + 1;
-					food_gen_flag <= 0;
-					gen_food      <= air;
+					food_gen_flag 				 <= 0;
+					gen_food     				 <= air;
 				end
 
 			end
 		
 		
 		
-			// ---- takes care of reducing the amount when food was eaten onnly once it was drawn on screen ----
+			// ---- takes care of reducing the amount when food was eaten only once it was drawn on screen ----
 			
 			else if ( (eaten_food != air) ) begin
 			
@@ -214,7 +214,7 @@ module	food_controller_v2	(
 										
 										
 											// ---- add a hamburger ----	
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			// game active, 1 sec, [DC] apple, less than 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			
 												
 												gen_food							<= hamburger;
 												food_gen_flag					<= 1;
@@ -226,7 +226,7 @@ module	food_controller_v2	(
 										
 										
 										// ---- add nothing, you are full! ----
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			// game active, 1 sec, [DC] apple, 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			
 												
 												gen_food							<= air;
 												time_soft_reset 				<= 1; 															// reset timer befor hopping 
@@ -237,7 +237,7 @@ module	food_controller_v2	(
 										
 										
 											// ---- do again this state without generating anything ---- 
-										else if (game_active_2_sec) begin																		// if no condition has been met  - for debugging
+										else if (game_active_2_sec) begin																	
 										
 											time_soft_reset 	<= 1;
 											fsm					<= mushroom_state;
@@ -278,7 +278,7 @@ module	food_controller_v2	(
 									
 											// ---- need to make sure all the conditions are necessery, maybe can be the same like in apple ----
 										else if ( 	(game_active) && (time_counter >= 8'd2) && (!time_soft_reset) &&
-														(food_count_in [hamburger] <= 8'd4) && (food_count_in [hamburger] >= 8'd0) 	) begin		// game active=3'd2, 5 sec, 1 apple, 0-4 ham
+														(food_count_in [hamburger] <= 8'd4) && (food_count_in [hamburger] >= 8'd0) 	) begin	
 													
 														gen_food							<= hamburger;
 														food_gen_flag					<= 1;
@@ -290,10 +290,10 @@ module	food_controller_v2	(
 										
 										
 											// ---- same as in apple state ----
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			// game active, 1 sec, [DC] apple, 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			
 												
 												gen_food							<= air;
-												time_soft_reset 				<= 1; 															// reset timer befor hopping 
+												time_soft_reset 				<= 1; 																						// reset timer befor hopping 
 												fsm								<= full_state;
 												
 										end 
@@ -336,11 +336,11 @@ module	food_controller_v2	(
 										
 										
 											// ---- same as in apple state ----	
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			// game active, 1 sec, [DC] apple, less than 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			
 												
 														gen_food							<= hamburger;
 														food_gen_flag					<= 1;
-														time_soft_reset 				<= 1; 															// reset timer befor hopping 
+														time_soft_reset 				<= 1; 													// reset timer befor hopping 
 														fsm								<= ham_state;
 												
 										end 
@@ -349,7 +349,7 @@ module	food_controller_v2	(
 										
 										
 											// ---- same as in apple state ----
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			// game active, 1 sec, [DC] apple, 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			
 												
 												gen_food							<= air;
 												time_soft_reset 				<= 1; 															// reset timer befor hopping 
@@ -400,7 +400,7 @@ module	food_controller_v2	(
 										
 																			
 											// ---- same as in apple state ----	
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			// game active, 1 sec, [DC] apple, less than 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] < 8'd5) ) begin			
 												
 														gen_food							<= hamburger;
 														food_gen_flag					<= 1;
@@ -413,7 +413,7 @@ module	food_controller_v2	(
 										
 										
 											// ---- same as in apple state ----
-										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			// game active, 1 sec, [DC] apple, 5 ham
+										else if ( (game_active_1_sec) && (food_count_in [hamburger] == 8'd5) ) begin			
 												
 												gen_food							<= air;
 												time_soft_reset 				<= 1; 															// reset timer befor hopping 

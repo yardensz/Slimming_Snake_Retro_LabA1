@@ -1,0 +1,216 @@
+Restore Archived Project report for final_snake
+Tue Oct 27 10:48:26 2026
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Tue Oct 27 10:48:26 2026 ;
+; Revision Name                   ; final_snake                           ;
+; Top-level Entity Name           ; SNAKE_GAME_TOP                        ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'C:/Users/jorde/LAB_A1/final/project_251026_v1.qar' into the 'C:/Users/jorde/LAB_A1/final/project_251026_v1_restored/' directory
+Info: Generated report 'final_snake.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4828 megabytes
+    Info: Processing ended: Tue Oct 27 10:48:26 2026
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++--------------------------------------------------------------------------------+
+; Files Restored                                                                 ;
++--------------------------------------------------------------------------------+
+; File Name                                                                      ;
++--------------------------------------------------------------------------------+
+; qar_info.json                                                                  ;
+; ALL_HEXSS.bdf                                                                  ;
+; CLK_31P5.cmp                                                                   ;
+; CLK_31P5.qip                                                                   ;
+; CLK_31P5.sip                                                                   ;
+; CLK_31P5.spd                                                                   ;
+; CLK_31P5.v                                                                     ;
+; CLK_31P5/CLK_31P5_0002.qip                                                     ;
+; CLK_31P5/CLK_31P5_0002.v                                                       ;
+; CLK_31P5_sim/CLK_31P5.vo                                                       ;
+; DE10_Standard_Audio.sdc                                                        ;
+; KBDINTF.qxp                                                                    ;
+; Lab1Demo.qpf                                                                   ;
+; RTL/AUDIO/AUDIO.bdf                                                            ;
+; RTL/AUDIO/JukeBox1.sv                                                          ;
+; RTL/AUDIO/Mili_sec_counter.sv                                                  ;
+; RTL/AUDIO/SinTable.sv                                                          ;
+; RTL/AUDIO/ToneDecoder.sv                                                       ;
+; RTL/AUDIO/addr_counter.sv                                                      ;
+; RTL/AUDIO/audio_controller.sv                                                  ;
+; RTL/AUDIO/audio_track_enable.sv                                                ;
+; RTL/AUDIO/audio_track_selector.sv                                              ;
+; RTL/AUDIO/melody_player_1.sv                                                   ;
+; RTL/AUDIO/prescaler.sv                                                         ;
+; RTL/AUDIO/songs.mif                                                            ;
+; RTL/CDU/clk_to_sof_pulse.sv                                                    ;
+; RTL/CDU/collision_detector.sv                                                  ;
+; RTL/FOOD_DRAW/food_controller_v2.sv                                            ;
+; RTL/FOOD_DRAW/food_display.bdf                                                 ;
+; RTL/FOOD_DRAW/food_draw.sv                                                     ;
+; RTL/FOOD_DRAW/packaged_food.sv                                                 ;
+; RTL/KEYBOARDX/TOP_KBD.bdf                                                      ;
+; RTL/KEYBOARDX/keyPad_decoder.sv                                                ;
+; RTL/KEYBOARDX/simple_up_counter.sv                                             ;
+; RTL/RANDOM/random_v5.sv                                                        ;
+; RTL/SCORE/3_digits_display.bdf                                                 ;
+; RTL/SNAKE_TILES/body_horizontal.mif                                            ;
+; RTL/SNAKE_TILES/body_vertial.mif                                               ;
+; RTL/SNAKE_TILES/corner_down_right.mif                                          ;
+; RTL/SNAKE_TILES/corner_left_down.mif                                           ;
+; RTL/SNAKE_TILES/corner_right_up.mif                                            ;
+; RTL/SNAKE_TILES/corner_up_left.mif                                             ;
+; RTL/SNAKE_TILES/head_down.mif                                                  ;
+; RTL/SNAKE_TILES/head_left.mif                                                  ;
+; RTL/SNAKE_TILES/head_right.mif                                                 ;
+; RTL/SNAKE_TILES/head_up.mif                                                    ;
+; RTL/SNAKE_TILES/tail_down.mif                                                  ;
+; RTL/SNAKE_TILES/tail_left.mif                                                  ;
+; RTL/SNAKE_TILES/tail_right.mif                                                 ;
+; RTL/SNAKE_TILES/tail_up.mif                                                    ;
+; RTL/Seg7/SEG7.SV                                                               ;
+; RTL/VGA/4colorBG.mif                                                           ;
+; RTL/VGA/MyConstant.sv                                                          ;
+; RTL/VGA/NumbersBitMap.sv                                                       ;
+; RTL/VGA/SNAKE_DISPLAY.bdf                                                      ;
+; RTL/VGA/SNAKE_GAME_TOP.bdf                                                     ;
+; RTL/VGA/VGA_Controller.sv                                                      ;
+; RTL/VGA/back_grround_draw_new.sv                                               ;
+; RTL/VGA/game_controller.sv                                                     ;
+; RTL/VGA/objects_mux.sv                                                         ;
+; RTL/VGA/snake_matrix_bitmap.sv                                                 ;
+; RTL/all_numbers_display.sv                                                     ;
+; RTL/apple.mif                                                                  ;
+; RTL/clock_divider.sv                                                           ;
+; RTL/custom_types.sv                                                            ;
+; RTL/game_state_mifs/gameOver.mif                                               ;
+; RTL/game_state_mifs/startScreen.mif                                            ;
+; RTL/game_state_mifs/victory.mif                                                ;
+; RTL/gamestate_image_display.sv                                                 ;
+; RTL/ham.mif                                                                    ;
+; RTL/input_flipper.sv                                                           ;
+; RTL/mushroom.mif                                                               ;
+; RTL/mushroom_filter.sv                                                         ;
+; RTL/numbers.mif                                                                ;
+; RTL/score_keeper.sv                                                            ;
+; RTL/snake_tail.sv                                                              ;
+; RTL/space_and_time_shifter.sv                                                  ;
+; RTL/time_counter.sv                                                            ;
+; RTL/wall.mif                                                                   ;
+; RTL/yinon_mods/TripleDigitNumber.sv                                            ;
+; RTL/yinon_mods/binary_to_BCD.sv                                                ;
+; RTL/yinon_mods/snake_management_unit.sv                                        ;
+; RTL/yinon_mods/snake_move.sv                                                   ;
+; RTL/yinon_mods/speed_controller.sv                                             ;
+; TAIL_Waveform.vwf                                                              ;
+; Waveform.vwf                                                                   ;
+; assignment_defaults.qdf                                                        ;
+; audio_codec_controller.QXP                                                     ;
+; constraints/DE10_Standard_Audio.sdc                                            ;
+; constraints/pin.tcl                                                            ;
+; db/final_snake.db_info                                                         ;
+; db/signal_tap_good_test_auto_stripped.stp                                      ;
+; final_snake.qsf                                                                ;
+; incremental_db/compiled_partitions/final_snake.db_info                         ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.cdb          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.dfp          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.hbdb.cdb     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.hbdb.hdb     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.hbdb.sig     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.hdb          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.logdb        ;
+; incremental_db/compiled_partitions/final_snake.root_partition.cmp.rcfdb        ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.cdb          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.dpi          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.hbdb.cdb     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.hbdb.hb_info ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.hbdb.hdb     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.hbdb.sig     ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.hdb          ;
+; incremental_db/compiled_partitions/final_snake.root_partition.map.kpt          ;
+; incremental_db/compiled_partitions/final_snake.rrp.hdb                         ;
+; incremental_db/compiled_partitions/final_snake.rrs.cdb                         ;
+; output_files/Chain1.cdf                                                        ;
+; output_files/Chain2.cdf                                                        ;
+; output_files/Chain3.cdf                                                        ;
+; output_files/ddfsafads.cdf                                                     ;
+; output_files/final_snake.asm.rpt                                               ;
+; output_files/final_snake.fit.rpt                                               ;
+; output_files/final_snake.fit.smsg                                              ;
+; output_files/final_snake.fit.summary                                           ;
+; output_files/final_snake.flow.rpt                                              ;
+; output_files/final_snake.jdi                                                   ;
+; output_files/final_snake.map.rpt                                               ;
+; output_files/final_snake.map.summary                                           ;
+; output_files/final_snake.pin                                                   ;
+; output_files/final_snake.sld                                                   ;
+; output_files/final_snake.sof                                                   ;
+; output_files/final_snake.sta.rpt                                               ;
+; output_files/final_snake.sta.summary                                           ;
+; output_files/stp1.stp                                                          ;
+; output_files/stp2.stp                                                          ;
+; rand_v5_wave.vwf                                                               ;
+; signal_tap_good_test.stp                                                       ;
+; speed_controller_sim1.vwf                                                      ;
+; stp1.stp                                                                       ;
+; stp2.stp                                                                       ;
+; time_counter.vwf                                                               ;
+; wave_rand_test.vwf                                                             ;
+; yinon_clock_divider_simulation_1.vwf                                           ;
+; yinon_clock_divider_simulation_2.vwf                                           ;
+; yinon_clock_divider_simulation_3_neww.vwf                                      ;
+; yinono_move_sim1.vwf                                                           ;
++--------------------------------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

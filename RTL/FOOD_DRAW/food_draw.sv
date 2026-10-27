@@ -78,7 +78,7 @@ localparam  logic [10:0] 	MAZE_HEIGHT_Y 	= 11'd13 ; 										// set the maze Y 
 
 
  
- logic [0:(MAZE_HEIGHT_Y-1)][0:(MAZE_WIDTH_X-1)] [3:0]	food_matrix ; 			// 19X13 grid 
+ logic [0:(MAZE_HEIGHT_Y-1)][0:(MAZE_WIDTH_X-1)] [3:0]	food_matrix ; 					// 19X13 grid 
  
  assign flat_food_matrix = food_matrix;	
 	
@@ -282,13 +282,12 @@ begin
 						 default			: food_matrix <= defualt_food_matrix_lvl1; 	 	
 			endcase
 			
-			//yinon did this
+			
 			
 			food_gen_done 	<= 0;
 			drawn_food		<= air;
 			
 			
-			//end of yinon
 			
 		end
 	
@@ -320,6 +319,7 @@ begin
 			end
 			
 		end // end if not board reset	
+			
 			
 			
 			

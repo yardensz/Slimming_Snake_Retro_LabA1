@@ -2,8 +2,6 @@ module random_v5
 	
  #(
 	parameter SIZE_BITS = 8,
-	//parameter unsigned [SIZE_BITS-1:0] 	MIN_VAL	= 0,  //set the min and max values 
-	//parameter unsigned [SIZE_BITS-1:0] 	MAX_VAL	= 255,
 	parameter unsigned 							HASH_SHIFT	= 5,		// in the hash function, set a constand number to be used
 	parameter unsigned 							HASH_MOD		= 19		// set % value for each hash functoin 
   )
@@ -25,10 +23,10 @@ module random_v5
 // Generating a random number by latching a fast counter with the rising edge of an input ( e.g. key pressed )
   
 
-	logic unsigned  	[SIZE_BITS-1:0] counter;
-	logic 				rise_d;
-	logic					enable_hashing_d;
-	logic					[10:0] num_cycle;
+	logic unsigned  	[SIZE_BITS-1:0] 	counter;
+	logic 										rise_d;
+	logic											enable_hashing_d;
+	logic					[10:0] 				num_cycle;
 	
 	
 	
@@ -36,7 +34,7 @@ module random_v5
 	
 always_ff @(posedge clk or negedge resetN) begin
 		if (!resetN) begin
-			rand_pos 		<= 1; // (max_count + min_count) >> 1;  //  divide by 2
+			rand_pos 		<= 1; 				// instead of deviding by 2
 			counter 			<= min_count;
 			rise_d			<= 1'b0;
 			num_cycle		<= 0;
@@ -53,9 +51,8 @@ always_ff @(posedge clk or negedge resetN) begin
 			else 								counter <= min_count;			
 			
 			
-			// 
+			//
 			rise_d 				<= random_effect;
-			//enable_hashing_d 	<= enable_hashing;
 			
 			
 			
@@ -68,7 +65,7 @@ always_ff @(posedge clk or negedge resetN) begin
 			
 			
 			
-			else if (enable_hashing) begin // deleted part: "&& !enable_hashing_d"
+			else if (enable_hashing) begin 	// deleted part: "&& !enable_hashing_d"
 				
 				rand_pos 	<= (last_rand + (num_cycle * HASH_SHIFT) ) % HASH_MOD; // Hash function: Xn = (X0 + n*SHIFT) % MOD
 				num_cycle	<= num_cycle + 1;

@@ -74,7 +74,7 @@ module all_numbers_display (
         .top_left_x(HIGHSCORE_X), 
         .top_left_y(HIGHSCORE_Y),
         .number_of_zeros_to_keep(HIGHSCORE_ZEROS),
-		  .color(8'b111_000_11)
+		  .color(8'b000_000_11) 								// 111_000_11
     ) disp_highScore (
         .clk(clk), .resetN(resetN),
         .pixelX(pixelX), .pixelY(pixelY),
@@ -145,3 +145,5 @@ module all_numbers_display (
     end
 
 endmodule
+
+

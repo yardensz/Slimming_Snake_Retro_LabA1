@@ -357,9 +357,77 @@ agreement for further details.
 	)
 )
 (symbol
+	(rect 768 328 976 440)
+	(text "space_and_time_shifter" (rect 5 0 123 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "resetN" (rect 0 0 33 12)(font "Arial" ))
+		(text "resetN" (rect 21 43 54 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "pixelX[10..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "pixelX[10..0]" (rect 21 59 81 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "pixelY[10..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "pixelY[10..0]" (rect 21 75 83 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "offset_x[10..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "offset_x[10..0]" (rect 125 27 199 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "offset_y[10..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "offset_y[10..0]" (rect 124 43 199 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 3))
+	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "placement_flag" (rect 0 0 75 12)(font "Arial" ))
+		(text "placement_flag" (rect 124 59 199 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64))
+	)
+	(parameter
+		"DISPLAY_AREA_Y"
+		"416"
+		""
+		(type "PARAMETER_UNSIGNED_DEC")	)
+	(parameter
+		"DISPLAY_AREA_X"
+		"608"
+		""
+		(type "PARAMETER_UNSIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 192 96))
+	)
+	(annotation_block (parameter)(rect 768 224 989 281))
+)
+(symbol
 	(rect 1352 296 1616 632)
-	(text "HartsMatrixBitMap" (rect 5 0 94 12)(font "Arial" ))
-	(text "inst6" (rect 8 320 31 332)(font "Arial" ))
+	(text "snake_matrix_bitmap" (rect 5 0 110 12)(font "Arial" ))
+	(text "inst" (rect 8 320 25 332)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -517,74 +585,6 @@ agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 248 320))
 	)
-)
-(symbol
-	(rect 768 328 976 440)
-	(text "space_and_time_shifter" (rect 5 0 123 12)(font "Arial" ))
-	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 27 35 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "resetN" (rect 0 0 33 12)(font "Arial" ))
-		(text "resetN" (rect 21 43 54 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "pixelX[10..0]" (rect 0 0 60 12)(font "Arial" ))
-		(text "pixelX[10..0]" (rect 21 59 81 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "pixelY[10..0]" (rect 0 0 62 12)(font "Arial" ))
-		(text "pixelY[10..0]" (rect 21 75 83 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "offset_x[10..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "offset_x[10..0]" (rect 125 27 199 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "offset_y[10..0]" (rect 0 0 75 12)(font "Arial" ))
-		(text "offset_y[10..0]" (rect 124 43 199 55)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48)(line_width 3))
-	)
-	(port
-		(pt 208 64)
-		(output)
-		(text "placement_flag" (rect 0 0 75 12)(font "Arial" ))
-		(text "placement_flag" (rect 124 59 199 71)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64))
-	)
-	(parameter
-		"DISPLAY_AREA_Y"
-		"416"
-		""
-		(type "PARAMETER_UNSIGNED_DEC")	)
-	(parameter
-		"DISPLAY_AREA_X"
-		"608"
-		""
-		(type "PARAMETER_UNSIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 192 96))
-	)
-	(annotation_block (parameter)(rect 768 224 989 281))
 )
 (connector
 	(text "clk" (rect 658 344 672 361)(font "Intel Clear" ))

@@ -49,7 +49,7 @@ module time_counter
 		
 		else begin
 		
-			if (clk_counter < BOARD_FREQ - 1) begin				// converts clock to a second (only with 6D6, not in sim)
+			if (clk_counter < BOARD_FREQ - 1) begin		// converts clock to a second (only with 6D6, not in sim)
 				clk_counter <= clk_counter + 1;
 				time_pulse 	<= 0;
 			end 

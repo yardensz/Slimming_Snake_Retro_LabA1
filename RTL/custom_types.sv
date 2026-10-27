@@ -8,9 +8,9 @@ package custom_types;
 		
 		tail_up, tail_down, tail_left, tail_right,
 		
-		turn1, turn2, turn3, turn4, 		// turns are like graph quadrants: 	2 | 1
-													//												--+--
-		body_horizontal, body_vertical	//												3 | 4
+		turn1, turn2, turn3, turn4, 		// turns are like graph quadrants: 	2 | 1    10 | 9
+													//												--+--		------
+		body_horizontal, body_vertical	//												3 | 4		11 | 12
 		
     } snakepart;
 	 

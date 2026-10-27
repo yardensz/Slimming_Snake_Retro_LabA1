@@ -54,7 +54,7 @@ logic       moving;
 logic       head_is_moving;
 logic       has_moved;
 
-// tail movement signals
+// tail movement signals (used to index snake_matrix for next_tile)
 logic [4:0] moved_tail_y;
 logic [5:0] moved_tail_x;
 
@@ -89,6 +89,28 @@ snake_move dmshlk (
 	.moving           (moving)
 );
 
+// computes tail movement, orientation, and previous tail deletion
+snake_tail #(
+	.INIT_TAIL_X      (init_tail_x),
+	.INIT_TAIL_Y      (init_tail_y)
+) tail_inst (
+	.clk                (clk),
+	.resetN             (resetN),
+	.man_reset          (|lvl_end[2:0] || soft_reset || dead),
+	.move_pulse         (game_tick),
+	.moving             (moving),
+	.head_is_moving     (head_is_moving),
+	.ate_fat            (ate_fat),
+	.next_tile          (snake_matrix[moved_tail_y][moved_tail_x]),
+	.moved_tail_y       (moved_tail_y),
+	.moved_tail_x       (moved_tail_x),
+	.draw_tail_y        (draw_tail_y),
+	.draw_tail_x        (draw_tail_x),
+	.delete_prev_tail_y (delete_prev_tail_y),
+	.delete_prev_tail_x (delete_prev_tail_x),
+	.draw_tail          (draw_tail)
+);
+
 // -------------------- continuous logic assignments --------------------:
 
 // unpack the flat matrix to 2D grid coordinates
@@ -110,21 +132,6 @@ assign self_collision = head_is_moving &&
 // combined death condition
 assign dead = snake_snake_collision || out_of_bounds || eaten_wall;
 
-// -------------------- next tail position computation ------------------:
-
-always_comb begin
-	moved_tail_y = draw_tail_y;
-	moved_tail_x = draw_tail_x;
-	
-	case (draw_tail)
-		tail_up:    moved_tail_y = draw_tail_y - 1;
-		tail_down:  moved_tail_y = draw_tail_y + 1;
-		tail_left:  moved_tail_x = draw_tail_x - 1; 
-		tail_right: moved_tail_x = draw_tail_x + 1; 
-		default:    ;
-	endcase
-end
-
 // -------------------- state update with always flip-flop --------------:
 
 always_ff @(posedge clk or negedge resetN) begin
@@ -139,13 +146,6 @@ always_ff @(posedge clk or negedge resetN) begin
 		
 		draw_neck_x           <= init_head_x - 1;
 		draw_neck_y           <= init_head_y;
-		
-		draw_tail_y           <= init_tail_y;
-		draw_tail_x           <= init_tail_x;
-		draw_tail             <= tail_right;
-		
-		delete_prev_tail_y    <= init_tail_y;
-		delete_prev_tail_x    <= init_tail_x - 1;
 	end
 	else if (soft_reset) begin 
 		eaten_wall            <= 1'b0;
@@ -158,13 +158,6 @@ always_ff @(posedge clk or negedge resetN) begin
 
 		draw_neck_x           <= init_head_x - 1;
 		draw_neck_y           <= init_head_y;
-
-		draw_tail_y           <= init_tail_y;
-		draw_tail_x           <= init_tail_x;
-		draw_tail             <= tail_right;
-
-		delete_prev_tail_y    <= init_tail_y;
-		delete_prev_tail_x    <= init_tail_x - 1;
 	end
 	else begin
 		// instantaneous wall collision on system clk, guarded against stale reset/idle pulses
@@ -182,17 +175,9 @@ always_ff @(posedge clk or negedge resetN) begin
 			
 			draw_neck_x        <= init_head_x - 1;
 			draw_neck_y        <= init_head_y;
-			
-			draw_tail_y        <= init_tail_y;
-			draw_tail_x        <= init_tail_x;
-			draw_tail          <= tail_right;
-			
-			delete_prev_tail_y <= init_tail_y;
-			delete_prev_tail_x <= init_tail_x - 1;
 		end
-
 		// step advance on game tick
-		if (game_tick) begin
+		else if (game_tick) begin
 			// enable collision checks once the snake has made its first valid move
 			if (moving) begin
 				has_moved <= 1'b1;
@@ -212,6 +197,7 @@ always_ff @(posedge clk or negedge resetN) begin
 						snake_snake_collision <= 1'b1;
 				end
 				else begin
+					// length increment when eating diet food
 					points <= points - 1;
 				end
 			end
@@ -219,26 +205,9 @@ always_ff @(posedge clk or negedge resetN) begin
 			draw_neck_y <= draw_head_y; 
 			draw_neck_x <= draw_head_x;
 			
-			// tail following logic
-			if (moving || head_is_moving) begin
-				if (ate_fat) begin
-					points <= points + 1;
-				end 
-				else begin 
-					case ({draw_tail, snake_matrix[moved_tail_y][moved_tail_x]})
-						{tail_right, turn2}, {tail_left, turn1}: draw_tail <= tail_up;
-						{tail_right, turn3}, {tail_left, turn4}: draw_tail <= tail_down;
-						{tail_up,    turn3}, {tail_down, turn2}: draw_tail <= tail_left;
-						{tail_up,    turn4}, {tail_down, turn1}: draw_tail <= tail_right;
-						default:                                 ;
-					endcase
-						
-					draw_tail_x        <= moved_tail_x;
-					draw_tail_y        <= moved_tail_y;
-					
-					delete_prev_tail_y <= draw_tail_y;
-					delete_prev_tail_x <= draw_tail_x;
-				end
+			// length increment when eating fat food
+			if ((moving || head_is_moving) && ate_fat) begin
+				points <= points + 1;
 			end
 		end
 	end

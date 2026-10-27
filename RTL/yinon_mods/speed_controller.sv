@@ -22,7 +22,7 @@ module speed_controller(
 	
 	assign divided_pulse = enable && ((count >= speed_value) && sof_posedge && (starting_delay_count == 0)) ;
 	
-	assign speed_value = slowmo_sw ? SLOWMO_SPEED : 16'd8 + (snake_length >> 2);   
+	assign speed_value = slowmo_sw ? SLOWMO_SPEED : 16'd12 + (snake_length >> 2);   
 	
 	//assign divided_pulse = button_posedge;
 	

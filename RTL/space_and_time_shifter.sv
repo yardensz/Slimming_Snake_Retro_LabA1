@@ -23,7 +23,6 @@ localparam logic	signed	[10:0] topLeftY = 16;    	// can be negative , if the ob
 logic next_placement_flag;
 
 
-// --- FIX START: Split raw offset and delay MSB [10:5] by 1 clock cycle to match LPM_ROM latency ---
 logic [10:0] raw_offset_x;
 logic [10:0] raw_offset_y;
 logic [5:0]  delayed_msb_x;
@@ -34,7 +33,6 @@ assign raw_offset_y = (pixelY - topLeftY);
 
 assign offset_x	= {delayed_msb_x, raw_offset_x[4:0]};
 assign offset_y	= {delayed_msb_y, raw_offset_y[4:0]};
-// --- FIX END ---
 
 assign next_placement_flag = ( 	(pixelX >= topLeftX) && (pixelX < topLeftX + DISPLAY_AREA_X) &&
 											(pixelY >= topLeftY) && (pixelY < topLeftY + DISPLAY_AREA_Y) 		);
@@ -48,10 +46,8 @@ always_ff@(posedge clk or negedge resetN) begin
 	if (!resetN) begin
 
 		placement_flag <= 0;
-		// --- FIX START ---
 		delayed_msb_x  <= 6'b0;
 		delayed_msb_y  <= 6'b0;
-		// --- FIX END ---
 		
 	end
 	
@@ -63,10 +59,9 @@ always_ff@(posedge clk or negedge resetN) begin
 		
 		// one clock cycle delay
 		placement_flag <= next_placement_flag;
-		// --- FIX START: 1 clock cycle delay for tile index (MSB) ---
 		delayed_msb_x  <= raw_offset_x[10:5];
 		delayed_msb_y  <= raw_offset_y[10:5];
-		// --- FIX END ---
+
 		
 	end
 	
