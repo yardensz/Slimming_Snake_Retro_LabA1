@@ -1,5 +1,5 @@
 # Slimming_Snake_Retro_LabA1
-Slimming snake game on FPGA Lab A1, Technion
+Slimming Snake game on FPGA Lab A1, Technion
 By Yinon Harel and Yarden Shma Zion
 
 Project video:
